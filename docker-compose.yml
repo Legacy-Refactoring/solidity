@@ -13,7 +13,11 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
       - ./seeder.sql:/docker-entrypoint-initdb.d/02-seeder.sql:ro
 
-  lang:
+  solidity:
+    image: ethereum/solc:0.8.28
+    working_dir: /app
+    volumes:
+      - .:/app
 
 volumes:
   postgres_data:
